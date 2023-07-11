@@ -32,6 +32,12 @@ app.use(methodOverride("_method"));
 app.use('/', indexRouter);
 app.use('/tasks', tasksRouter);
 
+// app.use(session({
+//   secret: process.env.SECRET,
+//   resave: false,
+//   saveUninitialized: true
+// }));
+
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
   next(createError(404));
