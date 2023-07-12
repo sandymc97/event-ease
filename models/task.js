@@ -21,7 +21,7 @@ const taskSchema = new Schema({
     type: String,
     enum: ['Work', 'Self-Care', 'Misc']
   },
-  name: { 
+  task: { 
    type: String, 
    required: true 
   },
