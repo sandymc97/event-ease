@@ -12,9 +12,9 @@ function show(req, res) {
   });
 }
 
-// function newTask(req, res) {
-//   res.render("tasks/new", { title: "Add Task", errorMsg: "" });
-// }
+function newTask(req, res) {
+  res.render("tasks/new", { title: "Add Task", errorMsg: "" });
+}
 
 // async function create(req, res) {
 //   try {
@@ -36,6 +36,6 @@ function show(req, res) {
 module.exports = {
   index,
   show,
-  // new: newTask,
+  new: newTask,
   // create
 };
