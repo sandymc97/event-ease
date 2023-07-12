@@ -1,21 +1,95 @@
 <%- include('../partials/header') %>
 
-<table id="list">
+<table id="planner">
   <thead>
     <tr>
-      <th>Tasks</th>
-      <th>Date<br>Assigned</th>
-      <th></th>
+      <div class="dayCol">
+        <th>Sunday</th>
+      </div>
+      <div class="dayCol">
+        <th>Monday</th>
+      </div>
+      <div class="dayCol">
+        <th>Tuesday</th>
+      </div>
+      <div class="dayCol">
+        <th>Wednesday</th>
+      </div>
+      <div class="dayCol">
+        <th>Thursday</th>
+      </div>
+      <div class="dayCol">
+        <th>Friday</th>
+      </div>
+      <div class="dayCol">
+        <th>Saturday</th>
+      </div>
+      
     </tr>
   </thead>
   <tbody>
     <% tasks.forEach(function(t) { %>
       <tr>
-        <td><%= t.title %></td>
-        <td><a href="/tasks/<%= m._id %>">DETAILS</a></td>
+        <td><%= t.category %></td>
+        <td><a href="/tasks/<%= t._id %>">DETAILS</a></td>
       </tr>
       <% }); %>
     </tbody>
   </table>
+
+<% if (tasks.length) { %>
+  <table>
+    <thead>
+      <tr>
+        <th>User</th>
+        <th>Date</th>
+        <th>Review</th>
+        <th>Rating</th>
+        <th></th>
+      </tr>
+    </thead>
+    <tbody>
+      <% tasks.forEach(function(r) { %>
+        <tr>
+          <td><%= r.date %></td>
+          <td><%= r.category %></td>
+          <td><%= r.name %></td>
+          <td>
+            <% { %>
+              <form action="/tasks/<%= r._id %>?_method=DELETE" method="POST">
+                <button type="submit">X</button>
+              </form>
+            <% } %>
+          </td>
+        </tr>
+      <% }); %>
+      <tr>
+        <td colspan="3"></td>
+        <td>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+<% } else { %>
+  <h5>No Tasks Yet</h5>
+<% } %>
+
+
+
   
+<form id="new-form" action="/tasks/<%= tasks._id %>" method="POST">
+  <label>Day:</label>
+  <input type="date" name="day">
+  <label>Category</label>
+  <select name="category">
+    <option value="Work">Work</option>
+    <option value="Self-Care">Self-Care</option>
+    <option value="Misc">Misc</option>
+  </select>
+  <label>Task:</label>
+  <input type="text" name="releaseYear">
+  
+  <input type="submit" value="Add Task">
+</form>
+
 <%- include('../partials/footer') %>

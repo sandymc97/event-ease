@@ -6,11 +6,11 @@ var tasksCtrl = require("../controllers/tasks");
 /// ALL ROUTES DEFAULT TO /tasks
 router.get("/", tasksCtrl.index);
 
-// TO BE LOGGED IN, DELETE ABOVE LINE, KEEP BELOW LINE
-// router.get("/", ensureLoggedIn, tasksCtrl.index);
 
 // GET /tasks/:id
 router.get("/:id", tasksCtrl.show);
+// POST /tasks
+router.post("/", tasksCtrl.create);
 
 
 module.exports = router;
