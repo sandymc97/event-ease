@@ -1,21 +1,21 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Tasks</title>
-</head>
-<body>
-     <h1>Tasks</h1>
-     <ul>
-       <% tasks.forEach(function(t) { %>
-         <li>
-          <a href="/tasks/<%= t.id %>"><%= t.todo %></a>
+<%- include('../partials/header') %>
 
-             - 
-           <%= t.done ? 'done' : 'not done' %>
-         </li>
-       <% }); %>
-     </ul>
-   </body>
-</html>
+<table id="list">
+  <thead>
+    <tr>
+      <th>Tasks</th>
+      <th>Date<br>Assigned</th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <% tasks.forEach(function(t) { %>
+      <tr>
+        <td><%= t.title %></td>
+        <td><a href="/tasks/<%= m._id %>">DETAILS</a></td>
+      </tr>
+      <% }); %>
+    </tbody>
+  </table>
+  
+<%- include('../partials/footer') %>
