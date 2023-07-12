@@ -1,13 +1,35 @@
-const tasks = [
-  { id: 125223, todo: "Feed Dogs", done: true },
-  { id: 127904, todo: "Learn Express", done: false },
-  { id: 139608, todo: "Buy Milk", done: false },
-];
+const mongoose = require('mongoose');
 
-module.exports = {
-  getAll,
-};
+const Schema = mongoose.Schema;
 
-function getAll() {
-  return tasks;
-}
+const mentalSchema = new Schema({
+  status: {
+    type: String,
+    enum: ['Calm','Happy','Overwhelmed','Anxious or Nervous', 'Sad', 'Angry']
+  }
+}, {
+  timestamps: true
+});
+
+
+
+const taskSchema = new Schema({
+  day: {
+    type: Date,
+  },
+  category: {
+    type: String,
+    enum: ['Work', 'Self-Care', 'Misc']
+  },
+  name: { 
+   type: String, 
+   required: true 
+  },
+  mentalStatus: [mentalSchema]
+}, {
+  timestamps: true
+});  
+
+
+
+module.exports = mongoose.model('Task', taskSchema);
