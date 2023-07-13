@@ -7,10 +7,9 @@ async function index(req, res) {
   res.render("tasks/index", { title: "All Tasks", tasks });
 }
 
-function show(req, res) {
-  res.render("tasks/show", {
-    task: Task.getOne(req.params.id),
-  });
+async function show(req, res) {
+  const task = await Task.findById(req.params.id)
+  res.render("tasks/show", { title: "task Detail", task});
 }
 
 function newTask(req, res) {
