@@ -6,6 +6,7 @@
         <h2><%= day%></h1>
         <div style="text-align: center;">
           <% tasks.filter((t) => t.dayOfTheWeek === day).forEach(function(t) { %>
+            <td><a href="/tasks/<%= t._id %>">DETAILS</a></td>
             <div style="display: flex; align-items: center;">
               <h5 style="margin-right: 2%;"><%= t.task%></h5>
               <form action="/tasks/<%= t._id %>?_method=DELETE" method="POST"> <button type="submit">X</button></form>
