@@ -43,7 +43,7 @@
       <% tasks.forEach(function(t) { %>
         <tr>
           <td><form action="/tasks/<%= t._id %>?_method=DELETE" method="POST"> <button type="submit">X</button></form></td>
-          <td><%= t.day %></td>
+          <td><%= t.daysOfWeek %></td>
           <td><%= t.category %></td>
           <td><%= t.task %></td>
           <td><a href="/tasks/<%= t._id %>">DETAILS</a></td>
@@ -62,16 +62,23 @@
   
 <form id="new-form" action="/tasks" method="POST">
   <label>Day:</label>
-  <input type="date" name="day">
+   <select name="daysOfWeek">
+     <option value="Sunday">Sunday</option>
+     <option value="Monday">Monday</option>
+     <option value="Tuesday">Tuesday</option>
+     <option value="Wednesday">Wednesday</option>
+     <option value="Thursday">Thursday</option>
+     <option value="Friday">Friday</option>
+     <option value="Saturday">Saturday</option>
+    </select>
   <label>Category</label>
-  <select name="category">
+   <select name="category">
     <option value="Work">Work</option>
     <option value="Self-Care">Self-Care</option>
     <option value="Misc">Misc</option>
-  </select>
+   </select>
   <label>Task:</label>
-  <input type="text" name="task">
-  
+   <input type="text" name="task">
   <button type="submit" value="Add Task"> Add</button>
 </form>
 

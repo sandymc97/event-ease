@@ -1,78 +1,52 @@
-<!-- <%- include('../partials/header') %>
-<table action="/tasks">
-<thead>
-  <tr>
-    <div class="dayCol">
-      <th>Sunday</th>
-    </div>
-    <div class="dayCol">
-      <th>Monday</th>
-    </div>
-    <div class="dayCol">
-      <th>Tuesday</th>
-    </div>
-    <div class="dayCol">
-      <th>Wednesday</th>
-    </div>
-    <div class="dayCol">
-      <th>Thursday</th>
-    </div>
-    <div class="dayCol">
-      <th>Friday</th>
-    </div>
-    <div class="dayCol">
-      <th>Saturday</th>
-    </div>
-    </table>
-  </tr>
-</thead>
-  <title>Tasks</title>
-</head>
-<body>
-     <body>
-  <h3><%= task.task %></h3>
-  <h3>Complete: <%= task.done ? 'Yes' : 'No' %></h3>
-</body>
-   </body>
-</html>
-
+<%- include('../partials/header') %>
 
 <section id="show-page">
-  <div>Title: </div>
-  <div><%= task.title %></div>
-  <div>Day: </div>
-  <div><%= task.day %></div>
+  <div>Task: </div>
+  <div><%= task.task %></div>
+  <div>Category: </div>
+  <div><%= task.category %></div>
+
   
-  <form action='/tasks' method='post'>
-    <div>Title: </div>
-    <div><%= task.name %></div>
-    <div>Day: </div>
-    <div><%= task.day %></div>
-    
-  </form> 
-
 </section>
+<br><br><h2>Notes</h2>
+<form id="add-note-form" method="POST"
+  action="/tasks/<%= task._id %>/notes">
+  <label>Note:</label>
+  <textarea name="content"></textarea>
+  <label>Rating:</label>
+  <select name="rating">
+    <option value="1">1</option>
+    <option value="2">2</option>
+    <option value="3">3</option>
+    <option value="4">4</option>
+    <option value="5" selected>5</option>
+  </select>
+  <input type="submit" value="Add Review">
+</form>
 
-<% if (tasks.length) { %>
+<% if (task.notes.length) { %>
   <table>
     <thead>
       <tr>
         <th>User</th>
         <th>Date</th>
-        <th>Review</th>
+        <th>Note</th>
         <th>Rating</th>
         <th></th>
       </tr>
     </thead>
     <tbody>
-      <% tasks.forEach(function(r) { %>
+      <% let total = 0 %>
+      <% task.notes.forEach(function(t) { %>
+        <% total += t.rating %>
         <tr>
-          <td><%= r.date %></td>
-          <td><%= r.category %></td>
-          <td><%= r.name %></td>
+          <td class="note-user"><img alt="avatar" src="<%= t.userAvatar %>" referrerpolicy="no-referrer" ><%= t.userName %></td>
+          <td><%= t.createdAt.toLocaleDateString() %></td>
+          <td><%= t.content %></td>
+          <td><%= t.rating %></td>
           <td>
-            <% { %>
-              <form action="/tasks"<%= r._id %>?_method=DELETE" method="POST">
+            <% if (user?._id.equals(t.user)) { %>
+              <form action="/notes/<%= t._id %>?_method=DELETE" method="POST">
                 <button type="submit">X</button>
               </form>
             <% } %>
@@ -81,13 +55,12 @@
       <% }); %>
       <tr>
         <td colspan="3"></td>
-        <td>
-        </td>
+        <td><strong><%= (total / task.notes.length).toFixed(1) %></strong></td>
       </tr>
     </tbody>
   </table>
 <% } else { %>
-  <h5>No Tasks Yet</h5>
+  <h5>No Notes Yet</h5>
 <% } %>
-
-  <%- include('../partials/footer') %> -->
+  
+<%- include('../partials/footer') %>
