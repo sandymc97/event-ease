@@ -22,7 +22,8 @@ function newTask(req, res) {
 async function create(req, res) {
   try {
     const task = await Task.create(req.body);
-    res.redirect(`/tasks/${task._id}`);
+    console.log(task)
+    res.redirect(`/tasks`);
   } catch (err) {
     res.render("tasks/new", { errorMsg: err.message });
   }

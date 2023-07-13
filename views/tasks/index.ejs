@@ -24,45 +24,31 @@
       <div class="dayCol">
         <th>Saturday</th>
       </div>
-      
     </tr>
-  </thead>
-  <tbody>
-    <% tasks.forEach(function(t) { %>
-      <tr>
-        <td><%= t.category %></td>
-        <td><a href="/tasks/<%= t._id %>">DETAILS</a></td>
-      </tr>
-      <% }); %>
-    </tbody>
+   </thead>
   </table>
 
-<% if (tasks.length) { %>
+
+
+  <% if (tasks.length) { %>
   <table>
     <thead>
       <tr>
-        <th>User</th>
-        <th>Date</th>
-        <th>Review</th>
-        <th>Rating</th>
-        <th></th>
+        <th>Day</th>
+        <th>Category</th>
+        <th>Task</th>
       </tr>
     </thead>
     <tbody>
-      <% tasks.forEach(function(r) { %>
+      <% tasks.forEach(function(t) { %>
         <tr>
-          <td><%= r.date %></td>
-          <td><%= r.category %></td>
-          <td><%= r.name %></td>
-          <td>
-            <% { %>
-              <form action="/tasks/<%= r._id %>?_method=DELETE" method="POST">
-                <button type="submit">X</button>
-              </form>
-            <% } %>
-          </td>
-        </tr>
-      <% }); %>
+          <td><form action="/tasks/<%= t._id %>?_method=DELETE" method="POST"> <button type="submit">X</button></form></td>
+          <td><%= t.day %></td>
+          <td><%= t.category %></td>
+          <td><%= t.task %></td>
+          <td><a href="/tasks/<%= t._id %>">DETAILS</a></td>
+          
+        <% }); %>
       <tr>
         <td colspan="3"></td>
         <td>
@@ -73,11 +59,8 @@
 <% } else { %>
   <h5>No Tasks Yet</h5>
 <% } %>
-
-
-
   
-<form id="new-form" action="/tasks/<%= tasks._id %>" method="POST">
+<form id="new-form" action="/tasks" method="POST">
   <label>Day:</label>
   <input type="date" name="day">
   <label>Category</label>
@@ -87,9 +70,9 @@
     <option value="Misc">Misc</option>
   </select>
   <label>Task:</label>
-  <input type="text" name="releaseYear">
+  <input type="text" name="task">
   
-  <input type="submit" value="Add Task">
+  <button type="submit" value="Add Task"> Add</button>
 </form>
 
 <%- include('../partials/footer') %>

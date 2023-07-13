@@ -30,5 +30,4 @@ const taskSchema = new Schema({
   timestamps: true
 });  
 
-
 module.exports = mongoose.model('Task', taskSchema);
