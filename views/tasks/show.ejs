@@ -1,5 +1,31 @@
-<%- include('../partials/header') %>
-
+<!-- <%- include('../partials/header') %>
+<table action="/tasks">
+<thead>
+  <tr>
+    <div class="dayCol">
+      <th>Sunday</th>
+    </div>
+    <div class="dayCol">
+      <th>Monday</th>
+    </div>
+    <div class="dayCol">
+      <th>Tuesday</th>
+    </div>
+    <div class="dayCol">
+      <th>Wednesday</th>
+    </div>
+    <div class="dayCol">
+      <th>Thursday</th>
+    </div>
+    <div class="dayCol">
+      <th>Friday</th>
+    </div>
+    <div class="dayCol">
+      <th>Saturday</th>
+    </div>
+    </table>
+  </tr>
+</thead>
   <title>Tasks</title>
 </head>
 <body>
@@ -10,7 +36,6 @@
    </body>
 </html>
 
-<%- include('../partials/header') %>
 
 <section id="show-page">
   <div>Title: </div>
@@ -18,10 +43,51 @@
   <div>Day: </div>
   <div><%= task.day %></div>
   
+  <form action='/tasks' method='post'>
+    <div>Title: </div>
+    <div><%= task.name %></div>
+    <div>Day: </div>
+    <div><%= task.day %></div>
+    
+  </form> 
 
+</section>
 
+<% if (tasks.length) { %>
+  <table>
+    <thead>
+      <tr>
+        <th>User</th>
+        <th>Date</th>
+        <th>Review</th>
+        <th>Rating</th>
+        <th></th>
+      </tr>
+    </thead>
+    <tbody>
+      <% tasks.forEach(function(r) { %>
+        <tr>
+          <td><%= r.date %></td>
+          <td><%= r.category %></td>
+          <td><%= r.name %></td>
+          <td>
+            <% { %>
+              <form action="/tasks"<%= r._id %>?_method=DELETE" method="POST">
+                <button type="submit">X</button>
+              </form>
+            <% } %>
+          </td>
+        </tr>
+      <% }); %>
+      <tr>
+        <td colspan="3"></td>
+        <td>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+<% } else { %>
+  <h5>No Tasks Yet</h5>
+<% } %>
 
-
-
-
-  <%- include('../partials/footer') %>
+  <%- include('../partials/footer') %> -->
