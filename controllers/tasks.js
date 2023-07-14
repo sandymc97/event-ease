@@ -21,24 +21,11 @@ function newTask(req, res) {
 async function create(req, res) {
   try {
     const task = await Task.create(req.body);
-    console.log(task)
-    res.redirect(`/tasks`);
+    res.redirect("/tasks");
   } catch (err) {
-    res.render("tasks/new", { errorMsg: err.message });
+    res.redirect("/tasks", { errorMsg: err.message });
   }
 }
-
-// async function create(req, res) {
-//   const task = await Task.findById(req.params.id);
-//   task.tasks.push(req.body);
-//   try {
-//     // Save any changes made to the task doc
-//     await task.save();
-//   } catch (err) {
-//     console.log(err);
-//   }
-//   res.redirect(`/tasks/${task._id}`);
-// }
 
 module.exports = {
   index,

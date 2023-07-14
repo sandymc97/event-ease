@@ -1,68 +1,28 @@
 <%- include('../partials/header'); %>
 
-<table id="planner">
-  <thead>
-    <tr>
-      <div class="dayCol">
-        <th>Sunday</th>
-      </div>
-      <div class="dayCol">
-        <th>Monday</th>
-      </div>
-      <div class="dayCol">
-        <th>Tuesday</th>
-      </div>
-      <div class="dayCol">
-        <th>Wednesday</th>
-      </div>
-      <div class="dayCol">
-        <th>Thursday</th>
-      </div>
-      <div class="dayCol">
-        <th>Friday</th>
-      </div>
-      <div class="dayCol">
-        <th>Saturday</th>
-      </div>
-    </tr>
-   </thead>
-  </table>
+<div class="row" style="display: flex; justify-content: space-between; margin: 1%;">
+  <% ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"].forEach(function(day) { %>
+      <div class="column">
+        <h2><%= day%></h1>
+        <div style="text-align: center;">
+          <% tasks.filter((t) => t.dayOfTheWeek === day).forEach(function(t) { %>
+            <td><a href="/tasks/<%= t._id %>">DETAILS</a></td>
+            <div style="display: flex; align-items: center;">
+              <h5 style="margin-right: 2%;"><%= t.task%></h5>
+              <form action="/tasks/<%= t._id %>?_method=DELETE" method="POST"> <button type="submit">X</button></form>
+            </div>
 
-
-
-  <% if (tasks.length) { %>
-  <table>
-    <thead>
-      <tr>
-        <th>Day</th>
-        <th>Category</th>
-        <th>Task</th>
-      </tr>
-    </thead>
-    <tbody>
-      <% tasks.forEach(function(t) { %>
-        <tr>
-          <td><form action="/tasks/<%= t._id %>?_method=DELETE" method="POST"> <button type="submit">X</button></form></td>
-          <td><%= t.daysOfWeek %></td>
-          <td><%= t.category %></td>
-          <td><%= t.task %></td>
-          <td><a href="/tasks/<%= t._id %>">DETAILS</a></td>
-          
-        <% }); %>
-      <tr>
-        <td colspan="3"></td>
-        <td>
-        </td>
-      </tr>
-    </tbody>
-  </table>
-<% } else { %>
-  <h5>No Tasks Yet</h5>
-<% } %>
+            <% }); 
+          %> 
+        </div>
+      </div>
+    <% }); 
+  %>
+</div>
   
 <form id="new-form" action="/tasks" method="POST">
   <label>Day:</label>
-   <select name="daysOfWeek">
+   <select name="dayOfTheWeek" title="dayOfTheWeek">
      <option value="Sunday">Sunday</option>
      <option value="Monday">Monday</option>
      <option value="Tuesday">Tuesday</option>
@@ -72,14 +32,14 @@
      <option value="Saturday">Saturday</option>
     </select>
   <label>Category</label>
-   <select name="category">
+   <select name="category" title="category">
     <option value="Work">Work</option>
     <option value="Self-Care">Self-Care</option>
     <option value="Misc">Misc</option>
    </select>
   <label>Task:</label>
-   <input type="text" name="task">
+   <input type="text" name="task" placeholder="Enter task name here">
   <button type="submit" value="Add Task"> Add</button>
 </form>
 
-<%- include('../partials/footer'); %>
+<%- include('../partials/footer') %>

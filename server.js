@@ -15,6 +15,8 @@ require('./config/passport');
 
 var indexRouter = require('./routes/index');
 var tasksRouter = require("./routes/tasks");
+var mentalStatusesRouter = require("./routes/mentalstatuses");
+const notesRouter = require('./routes/notes');
 
 var app = express();
 
@@ -45,6 +47,8 @@ app.use(function (req, res, next) {
 
 app.use('/', indexRouter);
 app.use('/tasks', tasksRouter);
+app.use('/', mentalStatusesRouter);
+app.use('/', notesRouter);
 
 
 

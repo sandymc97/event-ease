@@ -1,15 +1,15 @@
 const mongoose = require('mongoose');
-
 const Schema = mongoose.Schema;
 
 const mentalSchema = new Schema({
   status: {
     type: String,
     enum: ['Calm','Happy','Overwhelmed','Anxious or Nervous', 'Sad', 'Angry']
-  }
-}, {
+    }
+  }, {
   timestamps: true
 });
+
 
 const noteSchema = new Schema(
   {
@@ -17,31 +17,24 @@ const noteSchema = new Schema(
       type: String,
       required: true,
     },
-    rating: {
-      type: Number,
-      min: 1,
-      max: 5,
-      default: 5,
-    },
-    user: {
-      type: Schema.Types.ObjectId,
-      ref: "User",
-      required: true,
-    },
-    userName: String,
-    userAvatar: String,
-  },
-  {
+   },{
     timestamps: true,
-  }
-);
+});
 
 const taskSchema = new Schema(
   {
-    daysOfWeek: {
+    dayOfTheWeek: {
       type: String,
       required: true,
-      enum: ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"]
+      enum: [
+        "Sunday",
+        "Monday",
+        "Tuesday",
+        "Wednesday",
+        "Thursday",
+        "Friday",
+        "Saturday",
+      ],
     },
     category: {
       type: String,
@@ -49,9 +42,8 @@ const taskSchema = new Schema(
     },
     task: {
       type: String,
-      required: true,
     },
-    mentalSchema: [mentalSchema],
+    mentalStatuses: [mentalSchema],
     notes: [noteSchema],
   },
   {
