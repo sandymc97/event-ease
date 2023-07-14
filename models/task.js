@@ -21,8 +21,6 @@ const noteSchema = new Schema(
     timestamps: true,
 });
 
-
-
 const taskSchema = new Schema(
   {
     dayOfTheWeek: {
