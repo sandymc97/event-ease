@@ -36,8 +36,6 @@ const noteSchema = new Schema(
   }
 );
 
-
-
 const taskSchema = new Schema(
   {
     daysOfWeek: {

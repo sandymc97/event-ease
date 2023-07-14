@@ -1,17 +1,13 @@
-<!-- <!DOCTYPE html>
-<html>
-    <head>
-      <title><%= title %></title>
-      <link rel='stylesheet' href='/stylesheets/style.css' />
-    </head>
-    <body>
-      <h1><%= title %></h1>
-      <a href="/tasks">Tasks List</a>
-    </body>
-  </html> -->
 
-  <%- include('./partials/header') %>
+ <%- include('./partials/header') %>
 
 <h2>Home Page</h2>
+
+<% if (user) { %>
+    <a href="/tasks">All Tasks</a>
+    <a href="/logout">LOG OUT</a>
+  <% } else { %>
+    <a href="/auth/google" class="login">LOG IN&nbsp;<img src="https://i.imgur.com/FHjYyi0.png"></a>
+  <% } %>
 
 <%- include('./partials/footer') %>
