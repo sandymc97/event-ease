@@ -13,6 +13,8 @@ require("./config/database");
 
 var indexRouter = require('./routes/index');
 var tasksRouter = require("./routes/tasks");
+var mentalStatusesRouter = require("./routes/mentalStatuses");
+const notesRouter = require('./routes/notes');
 
 var app = express();
 
@@ -31,6 +33,8 @@ app.use(methodOverride("_method"));
 
 app.use('/', indexRouter);
 app.use('/tasks', tasksRouter);
+app.use('/', mentalStatusesRouter);
+app.use('/', notesRouter);
 
 // app.use(session({
 //   secret: process.env.SECRET,

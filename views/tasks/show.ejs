@@ -2,21 +2,20 @@
 
 <section id="show-page">
   <div>Day:</div>
-  <div><%= task.day %></div>
+  <div><%= task.daysOfWeek %></div>
   <div>Task: </div>
   <div><%= task.task %></div>
   <div>Category: </div>
   <div><%= task.category %></div>
-
-  
 </section>
+
+
 <br><br><h2>Notes</h2>
 <form id="add-note-form" method="POST"
   action="/tasks/<%= task._id %>/notes">
   <label>Note:</label>
   <textarea name="content"></textarea>
-  
-  <input type="submit" value="Add Note">
+   <input type="submit" value="Add Note">
 </form>
 
 <% if (task.notes.length) { %>
@@ -38,17 +37,16 @@
       <% }); %>
       <tr>
         <td colspan="3"></td>
-        <td><strong><%= (total / task.notes.length).toFixed(1) %></strong></td>
-      </tr>
     </tbody>
   </table>
 <% } else { %>
   <h5>No Notes Yet</h5>
 <% } %>
   
-<form id="new-form" action="/tasks" method="POST">
-  <label>Mental Health Check:</label>
-   <select name="mentalStatus">
+<h2>Mental Health Check</h2>
+<form id="add-mental-form" action="/tasks/<%= task._id %>/mentalStatuses" method="POST">
+  <label>Mental Health Status:</label>
+   <select name="status">
      <option value="Calm">Calm</option>
      <option value="Happy">Happy</option>
      <option value="Overwhelmed">Overwhelmed</option>
@@ -56,6 +54,34 @@
      <option value="Sad">Sad</option>
      <option value="Angry">Angry</option>
     </select>
+    <input type="submit" value="Add">
 </form>
 
+<% if (task.mentalStatuses.length) { %>
+  <table>
+    <thead>
+      <tr>
+        <th>Mental Status</th>
+        <th></th>
+      </tr>
+    </thead>
+    <tbody>
+      <% task.mentalStatuses.forEach(function(r) { %>
+        <tr>
+          <td><%= r.status %></td>
+          <td>
+            <form action="/mentalStatuses/<%= r._id %>?_method=DELETE" method="POST">
+              <button type="submit">X</button>
+              </form>
+          </td>
+        </tr>
+      <% }); %>
+      <tr>
+        <td colspan="3"></td>
+      </tr>
+    </tbody>
+  </table>
+<% } else { %>
+  <h5>No Mental Health Status Yet</h5>
+<% } %>
 <%- include('../partials/footer') %>

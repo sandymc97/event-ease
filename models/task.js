@@ -1,15 +1,15 @@
 const mongoose = require('mongoose');
-
 const Schema = mongoose.Schema;
 
 const mentalSchema = new Schema({
   status: {
     type: String,
     enum: ['Calm','Happy','Overwhelmed','Anxious or Nervous', 'Sad', 'Angry']
-  }
-}, {
+    }
+  }, {
   timestamps: true
 });
+
 
 const noteSchema = new Schema(
   {
@@ -17,11 +17,9 @@ const noteSchema = new Schema(
       type: String,
       required: true,
     },
-  },
-  {
+   },{
     timestamps: true,
-  }
-);
+});
 
 
 
@@ -29,7 +27,6 @@ const taskSchema = new Schema(
   {
     daysOfWeek: {
       type: String,
-      required: true,
       enum: ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"]
     },
     category: {
@@ -38,9 +35,8 @@ const taskSchema = new Schema(
     },
     task: {
       type: String,
-      required: true,
     },
-    mentalStatus: [mentalSchema],
+    mentalStatuses: [mentalSchema],
     notes: [noteSchema],
   },
   {
