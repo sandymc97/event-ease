@@ -13,7 +13,7 @@ require("./config/database");
 
 var indexRouter = require('./routes/index');
 var tasksRouter = require("./routes/tasks");
-var mentalStatusesRouter = require("./routes/mentalStatuses");
+var mentalStatusesRouter = require("./routes/mentalstatuses");
 const notesRouter = require('./routes/notes');
 
 var app = express();

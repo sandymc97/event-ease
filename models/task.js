@@ -25,9 +25,18 @@ const noteSchema = new Schema(
 
 const taskSchema = new Schema(
   {
-    daysOfWeek: {
+    dayOfTheWeek: {
       type: String,
-      enum: ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"]
+      required: true,
+      enum: [
+        "Sunday",
+        "Monday",
+        "Tuesday",
+        "Wednesday",
+        "Thursday",
+        "Friday",
+        "Saturday",
+      ],
     },
     category: {
       type: String,
