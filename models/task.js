@@ -1,15 +1,15 @@
 const mongoose = require('mongoose');
-
 const Schema = mongoose.Schema;
 
 const mentalSchema = new Schema({
   status: {
     type: String,
     enum: ['Calm','Happy','Overwhelmed','Anxious or Nervous', 'Sad', 'Angry']
-  }
-}, {
+    }
+  }, {
   timestamps: true
 });
+
 
 const noteSchema = new Schema(
   {
@@ -17,11 +17,9 @@ const noteSchema = new Schema(
       type: String,
       required: true,
     },
-  },
-  {
+   },{
     timestamps: true,
-  }
-);
+});
 
 
 
@@ -46,9 +44,8 @@ const taskSchema = new Schema(
     },
     task: {
       type: String,
-      required: true,
     },
-    mentalStatus: [mentalSchema],
+    mentalStatuses: [mentalSchema],
     notes: [noteSchema],
   },
   {

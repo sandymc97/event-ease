@@ -1,11 +1,11 @@
 const express = require('express');
 const router = express.Router();
-const reviewsCtrl = require('../controllers/mentalstatuses');
+const mentalStatusesCtrl = require('../controllers/mentalstatuses');
 
 
-// POST /movies/:id/reviews (create review for a movie)
-router.post('/tasks/:id/mentalstatuses', reviewsCtrl.create);
+// POST /movies/:id/reviews 
+router.post('/tasks/:id/mentalstatuses', mentalStatusesCtrl.create);
 // DELETE /mental status
-// router.delete('/mentalstatuses/:id', reviewsCtrl.delete);
+router.delete('/mentalstatuses/:id', mentalStatusesCtrl.delete);
 
 module.exports = router;
