@@ -20,8 +20,7 @@ async function create(req, res) {
 
 async function deleteMentalStatus(req, res) {
   
-  const task = await Task.findOne({
-  });
+  const task = await Task.findById(req.params.taskid);
   task.mentalStatuses.remove(req.params.id);
   await task.save();
   res.redirect(`/tasks/${task._id}`);
