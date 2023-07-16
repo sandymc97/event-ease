@@ -1,12 +1,33 @@
 <%- include('../partials/header') %>
 
 <section id="show-page">
-  <div>Day:</div>
-  <div><%= task.dayOfTheWeek %></div>
-  <div>Task: </div>
-  <div><%= task.task %></div>
-  <div>Category: </div>
-  <div><%= task.category %></div>
+  <form id="edit-form" method="post" action="/tasks/<%= task._id %>">
+    <div>Day:</div>
+    <select name="dayOfTheWeek" title="dayOfTheWeek">
+      <% ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"].forEach(function(day) { %>
+          <% if (day===task.dayOfTheWeek) { %>
+            <option value=<%= day%> selected><%= day%></option>
+          <% } else { %>
+            <option value=<%= day%>><%= day%></option>
+          <% } %>
+        <% }); 
+      %> 
+    </select>
+    <div>Task: </div>
+    <input type="text" name="task" placeholder="Enter task name here" value="<%= task.task%>">
+    <div>Category: </div>
+    <select name="category" title="category">
+      <% ["Work", "Self-Care", "Misc"].forEach(function(category) { %>
+        <% if (category===task.category) { %>
+          <option value=<%= category%> selected><%= category%></option>
+        <% } else { %>
+          <option value=<%= category%>><%= category%></option>
+        <% } %>
+        <% }); 
+      %>
+    </select> 
+    <input type="submit" value="Update">
+  </form>
 </section>
 
 
