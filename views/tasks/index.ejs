@@ -1,45 +1,72 @@
 <%- include('../partials/header'); %>
 
-<div class="row" style="display: flex; justify-content: space-between; margin: 1%;">
-  <% ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"].forEach(function(day) { %>
-      <div class="column">
-        <h2><%= day%></h1>
-        <div style="text-align: center;">
-          <% tasks.filter((t) => t.dayOfTheWeek === day).forEach(function(t) { %>
-            <td><a href="/tasks/<%= t._id %>">DETAILS</a></td>
-            <div style="display: flex; align-items: center;">
-              <h5 style="margin-right: 2%;"><%= t.task%></h5>
-              <form action="/tasks/<%= t._id %>?_method=DELETE" method="POST"> <button type="submit">X</button></form>
+
+  <h1 class="yourWeek">Your Week</h1>
+  <div class="whole">
+  <div class="columns">
+    <% ["Sunday", "Monday" , "Tuesday" , "Wednesday" , "Thursday" , "Friday" , "Saturday" ].forEach(function(day) { %>
+    <div class="daysCols">
+      <div class="daysCol" style="display: grid;">
+        <h2 class="dayHeader">
+         <div id="daysText"> <%= day%> </div>
+        </h2>
+        <div>
+          <% ["Work", "Self-Care" , "Misc" ].forEach(function(category) { %>
+            <div id="catDivs" class="<%= category === 'Work' ? 'blue' : category === 'Self-Care' ? 'yellow' : category === 'Misc' ? 'orange' : '' %>" style="text-align: center;">
+              <h3 class="catsCol" style="text-align: center;">
+                <%= category %>
+              </h3>
+              <div class="tasksDiv" style="text-align: center;">
+                <% tasks.filter((t)=> t.category === category && t.dayOfTheWeek === day).forEach(function(t) { %>
+                  <td><a href="/tasks/<%= t._id %>">DETAILS</a></td>
+                  <div style="display: flex; align-items: center;">
+                    <h5 style="margin-right: 2%;">
+                      <%= t.task%>
+                    </h5>
+                    <form action="/tasks/<%= t._id %>?_method=DELETE" method="POST"> <button type="submit">X</button>
+                    </form>
+                  </div>
+                  <% }); %>
+              </div>
             </div>
-
-            <% }); 
-          %> 
+            <% }); %>
         </div>
-      </div>
-    <% }); 
-  %>
-</div>
-  
-<form id="new-form" action="/tasks" method="POST">
-  <label>Day:</label>
-   <select name="dayOfTheWeek" title="dayOfTheWeek">
-     <option value="Sunday">Sunday</option>
-     <option value="Monday">Monday</option>
-     <option value="Tuesday">Tuesday</option>
-     <option value="Wednesday">Wednesday</option>
-     <option value="Thursday">Thursday</option>
-     <option value="Friday">Friday</option>
-     <option value="Saturday">Saturday</option>
-    </select>
-  <label>Category</label>
-   <select name="category" title="category">
-    <option value="Work">Work</option>
-    <option value="Self-Care">Self-Care</option>
-    <option value="Misc">Misc</option>
-   </select>
-  <label>Task:</label>
-   <input type="text" name="task" placeholder="Enter task name here">
-  <button type="submit" value="Add Task"> Add</button>
-</form>
 
-<%- include('../partials/footer') %>
+
+      </div>
+      </div>
+      <% });%>
+      <form id="new-form" action="/tasks" method="POST">
+        <h1>Add a task</h1>
+        <label>Day:</label>
+        <select name="dayOfTheWeek" title="dayOfTheWeek">
+          <option value="Sunday">Sunday</option>
+          <option value="Monday">Monday</option>
+          <option value="Tuesday">Tuesday</option>
+          <option value="Wednesday">Wednesday</option>
+          <option value="Thursday">Thursday</option>
+          <option value="Friday">Friday</option>
+          <option value="Saturday">Saturday</option>
+        </select>
+        <label>Category</label>
+        <select name="category" title="category">
+          <option value="Work">Work</option>
+          <option value="Self-Care">Self-Care</option>
+          <option value="Misc">Misc</option>
+        </select>
+        <label>Task:</label>
+        <input type="text" name="task" placeholder="Enter task here">
+        <br>
+        <button type="submit" value="Add Task"> Add</button>
+      </form>
+  </div>
+</div>
+
+
+
+
+
+
+
+
+  <%- include('../partials/footer') %>
