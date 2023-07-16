@@ -19,6 +19,7 @@ function newTask(req, res) {
 }
 
 async function create(req, res) {
+console.log(req.body)
   try {
     const task = await Task.create(req.body);
     res.redirect("/tasks");
