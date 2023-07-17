@@ -1,18 +1,27 @@
 # Sandy McGee, Rami Bankale, Sadarius Bowser
-## Project 2 - Event-Ease Daily Planner
+## Project 2 - EventEase Daily Planner
 
 
 ## Read Me
 
-## EventEase Planner is a simple and easy-to-use planner application that helps you keep track of your tasks. You can see your tasks for the week, add tasks to categories, and see the details of each task.
+## EventEase Planner is a simple and easy-to-use planner application that helps you keep track of your weekly tasks for work and personal use. You can view your tasks for the week, add/delete/update tasks under specific categories for a selected day, and add additional details to each task. 
 
 ### Features:
-See your tasks for the week
-Add tasks to categories
-See the details of each task
-Add notes to tasks
-Add mental health statuses to tasks
-Delete tasks
+<br></br>
+-View your tasks for the week
+<br></br>
+-Add tasks to specific categories under the selected day
+<br></br>
+-View the details page of each task
+<br></br>
+-Add notes to tasks
+<br></br>
+-Add mental health statuses in the details page
+<br></br>
+-Delete tasks
+<br></br>
+-Update Tasks 
+<br></br>
 
 ## Application Pictures:
 <img width="1438" alt="Screenshot 2023-07-17 at 8 11 46 AM" src="https://github.com/DariusBowser/event-ease/assets/134982506/bd8d0345-99f6-4533-9d84-98575ae14070">
@@ -31,14 +40,26 @@ The EventEase Daily Planner utilizes a combination of CSS, HTML, JavaScript, Nod
 
 MongoDB provides a database for information to be stored while OAuth Authentication allows for the user to sign in using a google account to access the planner. By using these technologies, the planner acheives seamless interactivity, an eye-easing interface, enhancing the overall experience for those using the EventEase Daily Planner. 
 
-HTML
-CSS
-JavaScript
-Node JS
-Express JS Frameworks
-MogoDB & Mongoose
-OAuth Authentication 
-Heroku & Atlas
+
+<br></br>
+-HTML
+<br></br>
+-CSS
+<br></br>
+-Javascript
+<br><br>
+-Node.js
+<br><br>
+-Express JS Frameworks
+<br></br>
+-MogoDB & Mongoose
+<br></br>
+-OAuth Authentication 
+<br></br>
+-Heroku & Atlas
+<br></br>
+
+
 
 ## Challenging Code Parts
 <img width="844" alt="Screenshot 2023-07-17 at 8 36 44 AM" src="https://github.com/DariusBowser/event-ease/assets/134982506/4d40be9e-f890-40ce-a7a6-ce5e702b5763">
