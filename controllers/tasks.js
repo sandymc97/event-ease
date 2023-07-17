@@ -10,14 +10,12 @@ async function showTaskDetails(req, res) {
   res.render("tasks/show", { title: "Task Detail", task });
 }
 
-async function createNewTask(req, res) {
-  try {
-    await taskDB.create(req.body);
-    res.redirect("/tasks");
-  } catch (err) {
-    res.redirect("/tasks", { errorMsg: err.message });
-  }
-}
+
+function newTask(req, res) {
+  // We'll want to be able to render an
+  // errorMsg if the create action fails yes
+  res.render("tasks/index", { title: "Add Task", errorMsg: "" });
+
 
 
 async function deleteTask(req, res) {
