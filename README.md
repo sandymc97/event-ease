@@ -4,7 +4,7 @@
 
 ## Read Me
 
-## EventEase Planner is a simple and easy-to-use planner application that helps you keep track of your weekly tasks for work and personal use. You can view your tasks for the week, add/delete/update tasks under specific categories for a selected day, and add additional details to each task. 
+## EventEase Planner is a simple and easy-to-use full CRUD planner application that helps you keep track of your weekly tasks for work and personal use. You can view your tasks for the week, add/delete/update tasks under specific categories for a selected day, and add additional details to each task. 
 
 ### Features:
 <br></br>
