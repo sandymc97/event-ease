@@ -4,7 +4,7 @@
 
 ## Read Me
 
-## EvenEase Planner is a simple and easy-to-use planner application that helps you keep track of your tasks. You can see your tasks for the week, add tasks to categories, and see the details of each task.
+## EventEase Planner is a simple and easy-to-use planner application that helps you keep track of your tasks. You can see your tasks for the week, add tasks to categories, and see the details of each task.
 
 ### Features:
 See your tasks for the week
@@ -27,9 +27,9 @@ Click on the task to enter the details page where you can add notes, add a menta
 
 
 ### Technology Used:
-The Event Ease Daily Planner utilizes a combination of CSS, HTML, JavaScript, Node JS, Expresss JS Frameworks, MongoDB, Mongoose, and OAuth Authentication. JavaScript included the various functionalities, such as updating, creating, and deleting tasks. EJS is a key component in rendering the JavaScript unto the page allowing for dynamic updates to the planner. 
+The EventEase Daily Planner utilizes a combination of CSS, HTML, JavaScript, Node JS, Expresss JS Frameworks, MongoDB, Mongoose, and OAuth Authentication. JavaScript included the various functionalities, such as updating, creating, and deleting tasks. EJS is a key component in rendering the JavaScript unto the page allowing for dynamic updates to the planner. 
 
-MongoDB provides a database for information to be stored while OAuth Authentication allows for the user to sign in using a google account to access the planner. By using these technologies, the planner acheives seamless interactivity, an eye-easing interface, enhancing the overall experience for those using the Event Ease Daily Planner. 
+MongoDB provides a database for information to be stored while OAuth Authentication allows for the user to sign in using a google account to access the planner. By using these technologies, the planner acheives seamless interactivity, an eye-easing interface, enhancing the overall experience for those using the EventEase Daily Planner. 
 
 HTML
 CSS
