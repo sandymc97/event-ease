@@ -358,16 +358,15 @@ display: flex;
 align-items: flex-start;
 gap: 6px;
 margin-left: 20px;
- }
+margin-bottom: 10rem;
+}
 
 .whole {
+
 display: flex;
-justify-content:center;
+justify-content: center;
 margin: 1%;
-
-
-
- }
+}
 
  .showContent {
   justify-content: center;
