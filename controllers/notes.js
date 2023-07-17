@@ -25,3 +25,4 @@ async function deleteNote(req, res) {
   await task.save();
   res.redirect(`/tasks/${task._id}`);
 }
+
