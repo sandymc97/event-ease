@@ -1,13 +1,39 @@
 
  <%- include('./partials/header') %>
 
-<h2>Home Page</h2>
+ <style> 
+  body {
+    background-image: url("https://i.imgur.com/7H31hcm.png");
+    background-color: #ffffff;
+    background-size:22rem;
+    background-repeat: no-repeat;
+    background-position: center;
+
+  }
+  </style>
+
+<h1 class="motto">The planner that allows you to plan all of life</h1>
+<br>
+
 
 <% if (user) { %>
-    <a href="/tasks">All Tasks</a>
-    <a href="/logout">LOG OUT</a>
+<div class="gradient">
+  <div class="signedInBox">
+    <h2 class="planYourWeek">Plan your week</h2>
+    <br>
+    <a class="signedInHome" href="/tasks"><span class="signedInText">All Tasks</span></a>
+    <br><br>
+  </div>
+</div>
+  <br><br><br><br> 
   <% } else { %>
-    <a href="/auth/google" class="login">LOG IN&nbsp;<img src="https://i.imgur.com/FHjYyi0.png"></a>
+  <div class="gradient">
+    <div class="signInBox">
+    <a class="signInLink" href="/auth/google" class="login">&nbsp;<img class="signInImg" src="https://i.imgur.com/FHjYyi0.png"><span class="homeText">Sign in with Google</span></a>
+   <br><br>
+  </div>
+</div>
+  <br><br><br><br><br><br><br>
   <% } %>
 
 <%- include('./partials/footer') %>

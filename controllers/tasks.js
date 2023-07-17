@@ -19,6 +19,7 @@ async function createNewTask(req, res) {
   }
 }
 
+
 async function deleteTask(req, res) {
   try {
     await taskDB.deleteOne({ _id: req.params.id });

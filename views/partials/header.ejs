@@ -4,20 +4,25 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Tasks</title>
   <link rel='stylesheet' href='/stylesheets/style.css' />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Arimo:wght@500&family=Bebas+Neue&family=Comfortaa&family=Concert+One&family=Manrope:wght@500&family=Monofett&family=Oxygen&family=Permanent+Marker&family=Poller+One&family=Rubik+Bubbles&display=swap" rel="stylesheet">
 </head>
 <body>
   <nav>
-    <a href="/">Home</a>
+    <img  src="https://i.imgur.com/Ioq8BAz.png" alt="EE">
+    <a href="/"><span class="navText">Home</span></a>
     |
     <!-- <a href="/tasks/new">New Task</a> --> 
   
       <% if (user) { %>
-        <a href="/tasks">All Tasks</a>
-        <a href="/logout">LOG OUT</a>
+       
+        <a href="/tasks"><span class="navText">ALL TASKS</span></a>
+        |
+        <a href="/logout"><span class="navText">LOG OUT</span></a>
       <% } else { %>
-        <a href="/auth/google" class="login">LOG IN&nbsp;<img src="https://i.imgur.com/FHjYyi0.png"></a>
+        <a href="/auth/google" class="login"><span class="navText">LOG IN</span>&nbsp;<img src="https://i.imgur.com/FHjYyi0.png"></a>
       <% } %>
       
   </nav>
