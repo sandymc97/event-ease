@@ -1,6 +1,7 @@
 const Task = require("../models/task");
 
 // const Note = require("../models/note");
+// Before Merge
 
 async function index(req, res) {
   const tasks = await Task.find({});
