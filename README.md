@@ -34,9 +34,11 @@
 <br><br>
 -Click on the task to enter the details page where you can add notes, add a mental health status, and edit the task.
 <br><br>
-<img width="1436" alt="Screenshot 2023-07-17 at 8 15 59 AM" src="https://github.com/DariusBowser/event-ease/assets/134982506/0558a25b-40af-4f76-8e9f-edc75bfca12a">
-<br><br>
 <img width="1436" src="https://i.imgur.com/UvLPQVL.png">
+<br><br>
+-Click on the task to enter the details page where you can add notes, add a mental health status, and edit the task.
+<br><br
+<img width="1436" alt="Screenshot 2023-07-17 at 8 15 59 AM" src="https://github.com/DariusBowser/event-ease/assets/134982506/0558a25b-40af-4f76-8e9f-edc75bfca12a">
 <br><br>
 
 
