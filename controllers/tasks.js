@@ -14,7 +14,7 @@ async function show(req, res) {
 
 function newTask(req, res) {
   // We'll want to be able to render an
-  // errorMsg if the create action fails
+  // errorMsg if the create action fails yes
   res.render("tasks/index", { title: "Add Task", errorMsg: "" });
 }
 
