@@ -1,4 +1,4 @@
-# Sandy McGee, Rami Bankale, Sadarius Bowser
+
 ## Project 2 - EventEase Daily Planner
 
 
